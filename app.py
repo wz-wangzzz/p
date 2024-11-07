@@ -1,9 +1,4 @@
 import streamlit as st
-from openpyxl import Workbook, load_workbook
-
-
-wb = load_workbook('身高曲线图.xlsx')
-
 
 #一个输入的文本框
 st.text_input("输入字符串",key="name")
@@ -13,13 +8,11 @@ sex = st.selectbox(
     options=['男','女']
 )
 
-sheet = wb[sex]
-age =  sheet['v3'].value
+
 
 st.date_input("选择出生日期",key="birthday")
 
-if st.button("生成"):
-    st.write(age)
+if st.button("生成"): st.write(111)
 
 
 with open('Template.docx', 'rb') as file:
