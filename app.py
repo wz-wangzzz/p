@@ -7,6 +7,11 @@ import numpy as np
 #一个输入的文本框
 st.text_input("输入字符串",key="name")
 
+option = st.selectbox(
+    label='请选择性别：',
+    options=['男','女']
+)
+
 st.number_input("输入年龄",key="age")
 
 st.date_input("选择出生日期",key="birthday")
@@ -15,11 +20,12 @@ a=2
 
 if st.button("生成"): st.write(a)
 
-# st.download_button(
-#     label="下载",
-#     data= "",
-#     file_name="test.docx",
-#     mime="text/docx"
-# )
+with open('Template.docx', 'rb') as file:
+    st.download_button(
+        label="下载",
+        data= file,
+        file_name="test.docx",
+        mime="text/docx"
+    )
 
 
