@@ -1,24 +1,30 @@
 import streamlit as st
-import pandas as pd
-import numpy as np
+from openpyxl import Workbook, load_workbook
 
+
+wb = load_workbook('身高曲线图.xlsx')
 
 
 #一个输入的文本框
 st.text_input("输入字符串",key="name")
 
-option = st.selectbox(
+sex = st.selectbox(
     label='请选择性别：',
     options=['男','女']
 )
 
-st.number_input("输入年龄",key="age")
+sheet = wb[sex]
+age =  sheet['v3'].value
+# ws = wb.active
+# ws._images[0] # 第一张图片对象
+# data = ws._images[0]._data() # 图片的字节数据
+# st.image(data)
 
 st.date_input("选择出生日期",key="birthday")
 
-a=2
+if st.button("生成"):
+    st.write(age)
 
-if st.button("生成"): st.write(a)
 
 with open('Template.docx', 'rb') as file:
     st.download_button(
