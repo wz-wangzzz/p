@@ -15,10 +15,6 @@ sex = st.selectbox(
 
 sheet = wb[sex]
 age =  sheet['v3'].value
-# ws = wb.active
-# ws._images[0] # 第一张图片对象
-# data = ws._images[0]._data() # 图片的字节数据
-# st.image(data)
 
 st.date_input("选择出生日期",key="birthday")
 
